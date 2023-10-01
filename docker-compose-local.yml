@@ -6,7 +6,7 @@ services:
     ports:
       - "7000:105"
     volumes:
-      - {{PATH_TO_FOLDER_WITH_LLM_ORCA}}:/model
+      - C:\Users\pexoy\Desktop\HackYeah\Model:/model
     networks:  
       - hackyeah-network
 
