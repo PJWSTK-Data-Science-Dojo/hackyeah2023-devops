@@ -6,7 +6,7 @@ services:
     ports:
       - "7000:105"
     volumes:
-      - C:\Users\pexoy\Desktop\HackYeah\Model:/model
+      - {{PATH_TO_FOLDER_WITH_LLM_ORCA}}:/model
 
   hackyeah-api:
     image: hackyeah2023-api-local:latest
