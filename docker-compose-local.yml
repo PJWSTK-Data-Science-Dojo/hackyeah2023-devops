@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  hackyeah-ml:
+    image: hackyeah2023-ml-local:latest
+    ports:
+      - "7000:105"
+    volumes:
+      - C:\Users\pexoy\Desktop\HackYeah\Model:/model
+
+  hackyeah-api:
+    image: hackyeah2023-api-local:latest
+    ports:
+      - "5012:80"
+
+  hackyeah-ui:
+    image: hackyeah2023-ui-local:latest
+    ports:
+      - "4200:80"

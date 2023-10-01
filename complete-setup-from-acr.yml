@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  hackyeah-ml:
+    image: pexoacr.azurecr.io/hackyeah-ml:latest
+    ports:
+      - "7000:105"
+    volumes:
+      - C:\Users\pexoy\Desktop\HackYeah\Model:/model
+
+  hackyeah-api:
+    image: pexoacr.azurecr.io/hackyeah-api:latest
+    ports:
+      - "5012:80"
+
+  hackyeah-ui:
+    image: pexoacr.azurecr.io/hackyeah-ui:latest
+    ports:
+      - "4200:80"
