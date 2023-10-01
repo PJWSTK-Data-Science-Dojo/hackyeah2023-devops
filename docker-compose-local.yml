@@ -1,19 +1,31 @@
 version: '3'
 
 services:
-  hackyeah-ml:
+  hackyeah-ml-service:
     image: hackyeah2023-ml-local:latest
     ports:
       - "7000:105"
     volumes:
-      - {{PATH_TO_FOLDER_WITH_LLM_ORCA}}:/model
+      - C:\Users\pexoy\Desktop\HackYeah\Model:/model
+    networks:  
+      - hackyeah-network
 
   hackyeah-api:
     image: hackyeah2023-api-local:latest
     ports:
       - "5012:80"
+    networks:
+      - hackyeah-network
 
   hackyeah-ui:
     image: hackyeah2023-ui-local:latest
     ports:
       - "4200:80"
+    volumes:
+      - ./nginx-reverse-proxy.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - hackyeah-network
+
+networks:
+  hackyeah-network:
+    external: true
