@@ -1,19 +1,31 @@
 version: '3'
 
 services:
-  hackyeah-ml:
+  hackyeah-ml-service:
     image: pexoacr.azurecr.io/hackyeah-ml:latest
     ports:
       - "7000:105"
     volumes:
       - {{PATH_TO_FOLDER_WITH_LLM_ORCA}}:/model
+    networks:  
+      - hackyeah-network
 
   hackyeah-api:
     image: pexoacr.azurecr.io/hackyeah-api:latest
     ports:
       - "5012:80"
+    networks:
+      - hackyeah-network
 
   hackyeah-ui:
     image: pexoacr.azurecr.io/hackyeah-ui:latest
     ports:
       - "4200:80"
+    volumes:
+      - ./nginx-reverse-proxy.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - hackyeah-network
+
+networks:
+  hackyeah-network:
+    external: true
