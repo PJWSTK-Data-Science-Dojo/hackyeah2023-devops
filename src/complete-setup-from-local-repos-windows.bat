@@ -8,6 +8,8 @@ SET API_IMAGE_NAME=hackyeah2023-api-local
 SET UI_IMAGE_NAME=hackyeah2023-ui-local
 SET ML_IMAGE_NAME=hackyeah2023-ml-local
 
+docker network create hackyeah-network
+
 REM Build Docker images
 echo Building API Docker image...
 docker build -t %API_IMAGE_NAME% %API_PROJECT_PATH%

@@ -5,8 +5,6 @@ services:
     image: hackyeah2023-ml-local:latest
     ports:
       - "7000:105"
-    volumes:
-      - C:\Users\pexoy\Desktop\HackYeah\Model:/model
     networks:  
       - hackyeah-network
 
